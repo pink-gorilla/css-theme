@@ -1,8 +1,11 @@
 {:name "css-theme"
  ; build
  :lazy false
- :cljs-namespace [frontend.css.view]
- :cljs-ns-bindings {'ui.css {'load-css frontend.css.view/load-css}}
+ :cljs-namespace [frontend.css
+                  frontend.css.view]
+ :cljs-ns-bindings {'frontend.css {'start-theme frontend.css/start-theme}
+                    'frontend.css.view {'load-css frontend.css.view/load-css}}
+; runtime
+ :cljs-service {:config-fn frontend.css/config-theme
+                :start-fn frontend.css/start-theme}}
 
-; 
-}
