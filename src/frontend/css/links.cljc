@@ -1,4 +1,4 @@
-(ns frontend.css.config
+(ns frontend.css.links
   (:require
    [clojure.string :refer [starts-with?]]))
 
@@ -21,7 +21,8 @@
     (into []
           (map (partial link-css prefix) links))))
 
-(defn css-app [prefix available current]
+(defn css-app [prefix {:keys [available current] :as theme}]
+  ;(println "css-app prefix: " prefix " theme: " theme)
   (into []
         (reduce
          (fn [acc [kw v]]
@@ -29,3 +30,14 @@
          []
          current)))
 
+(defn css-link [link]
+  [:link {:class "webly"
+          :rel "stylesheet"
+          :type "text/css"
+          :href link}])
+
+(defn css-links 
+  "this is used to get the css-links in the static html page"
+  [prefix theme]
+  (let [css-links (css-app prefix theme)]
+    (doall (map css-link css-links))))

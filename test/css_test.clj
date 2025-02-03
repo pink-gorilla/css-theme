@@ -4,8 +4,7 @@
   (:require
    [clojure.test :refer [deftest is are testing]]
    ;[cljs.test :refer-macros [async deftest is testing]]
-   [taoensso.timbre :refer-macros [info error]]
-   [frontend.css.config :refer [css-component css-app]]))
+   [frontend.css.links :refer [css-component css-app]]))
 
 (def available-themes
   {:tailwind   {true ["tailwindcss/dist/tailwind.css"]}
@@ -35,6 +34,7 @@
     ["/r/tailwindcss/dist/tailwind.css"
      "/r/codemirror/lib/codemirror.css"
      "/r/codemirror/theme/base16-light.css"]
-    (css-app "/r/" available-themes current-theme-config)
+    (css-app "/r/" {:available available-themes 
+                    :current current-theme-config})
 ;
     ))
