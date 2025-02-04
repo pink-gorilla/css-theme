@@ -9,9 +9,7 @@
      :current (reduce merge {} (map :current themes))}))
 
 
-(defn config-theme [_module-name _config exts _default-config]
-  ;(let [module-name (if (string? module-name)
-  ;                    (keyword module-name)
-  ;                    module-name)]
-  ;  (or (get config module-name) default-config)) 
+(defn config-theme 
+  "function that configures the css loader from extensions"
+  [_module-name _config exts _default-config]
   (get-theme-config exts))

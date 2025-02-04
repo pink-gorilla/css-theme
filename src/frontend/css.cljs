@@ -9,7 +9,8 @@
   (r/atom {:available {}
            :current {}}))
 
-(defn add-components [{:keys [available current]}]
+(defn add-components [{:keys [available current] :as theme}]
+  (println "css add-components: " theme)
   (reset! theme-a
           {:available (merge available (:available @theme-a))
            :current (merge current (:current @theme-a))}))
