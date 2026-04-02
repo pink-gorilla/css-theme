@@ -1,4 +1,4 @@
-{:extension/name :css/theme
+{:extension/name :theme
  ; build
  :cljs/module :main
  :cljs/namespace [frontend.css]
