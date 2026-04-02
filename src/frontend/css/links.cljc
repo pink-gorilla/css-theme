@@ -38,6 +38,6 @@
 
 (defn css-links 
   "this is used to get the css-links in the static html page"
-  [prefix theme]
-  (let [css-links (css-app prefix theme)]
+  [prefix theme-config]
+  (let [css-links (css-app prefix theme-config)]
     (doall (map css-link css-links))))

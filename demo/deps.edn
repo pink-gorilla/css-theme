@@ -3,6 +3,10 @@
 
  :aliases
  {:demo {:exec-fn demo/demo
-         :exec-args {:config {:css/theme {:codemirror "dracula"}}
+         :exec-args {:config {:css/theme {:available {:emoji {true ["@icon/fontisto-emoji/fontisto-emoji.css"]
+                                                              false []}}
+                                          :current {:codemirror "dracula"
+                                                    :emoji    false}}}
                      :profile "npm-install"
                      :version "prod1"}}}}
+
